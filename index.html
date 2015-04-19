@@ -26,7 +26,7 @@
       <a href="#nav" class="nav-toggle">Menu</a>
       
             <iframe id="frame">
-                <div id="content"></div>
+               
           </iframe>
 
   
@@ -53,7 +53,7 @@
                 url:"./home.html",
                 type:"GET",
                 success:function(data){   
-                $("#frame").contents().find("body").html(data); 
+                $("#frame").contents().find("html").html(data); 
                 }
             });
         });
@@ -71,11 +71,7 @@
                 data=markdown.toHTML(data);
             }  
             alert("click"+myurl);   
-                var f=$("#frame");
-                f.load(function(){
-                    alert("asda");
-                    f.contents().find("#content").html(data);
-                });
+                $("#frame").contents().find("html").html(data); 
          
             }
             });
