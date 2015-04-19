@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
   
     <!--[if gt IE 8]><!--><link rel="stylesheet" href="./css/styles.css"><!--<![endif]-->
-       
+       <script src="./js/responsive-nav.min.js"></script>
     
     
   </head>
@@ -30,19 +30,19 @@
     </div>
 <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="./js/responsive-nav.min.js"></script>
+
 <script src="./js/markdown.min.js"></script>
     <script>
         //响应式导航栏
       var navigation = responsiveNav("foo", {customToggle: ".nav-toggle"});
         //加载首页
         $(document).ready(function(){
-            
+           
             $.ajax({
-                url:"home.html",
+                url:"./home.html",
                 type:"GET",
                 success:function(data){
-                    
+                    alert(data);
                      $(".content").html(data);
                 }
             });
@@ -50,13 +50,18 @@
         //加载链接页面
       $(".load").click(function(){
             var myurl=$(this).attr("myurl");
-          //alert(myurl);
+        
             $.ajax( {
             url: myurl, //这里是静态页的地址
             type: "GET", //静态页用get方法，否则服务器会抛出405错误
             success: function(data){
             //var result = $(data).find("另一个html页面的指定的一部分");
-            $(".content").html(markdown.toHTML(data));
+            var d=myurl.length-3;
+            if(d>=0&&myurl.lastIndexOf(".md")==d){
+                data=markdown.toHTML(data);
+            }
+                
+            $(".content").html(data);
             }
             });
       });
