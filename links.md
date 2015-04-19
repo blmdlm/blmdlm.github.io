@@ -5,6 +5,6 @@
 + [博客园][2]
 
 
-[1]: www.csdn.net "CSDN"
-[2]: www.cnblogs.com "博客园"
+[1]: http://www.csdn.net 
+[2]: http://www.cnblogs.com 
 
