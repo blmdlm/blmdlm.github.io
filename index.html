@@ -25,7 +25,10 @@
     <div role="main" class="main">
       <a href="#nav" class="nav-toggle">Menu</a>
       <div class="content">
-            <iframe id="frame" src="./home.html"></iframe>
+            <iframe id="frame" src="./home.html">
+           <div id="frameContent">
+                </div>
+          </iframe>
 
       </div>
     </div>
@@ -69,7 +72,8 @@
                 data=markdown.toHTML(data);
             }
                 
-            $("#frame").css("src",data);
+            $("#frame").removeAttr("src");
+            $("#frameContent").html(data);  
             }
             });
       });
