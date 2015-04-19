@@ -1,10 +1,9 @@
 ###技术社区
 
-+ [CSDN][1]
++ [CSDN](http://www.csdn.net )
 
-+ [博客园][2]
++ [博客园](http://www.cnblogs.com)
 
 
-[1]: http://www.csdn.net 
-[2]: http://www.cnblogs.com 
+
 
