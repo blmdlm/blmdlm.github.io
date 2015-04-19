@@ -26,7 +26,7 @@
       <a href="#nav" class="nav-toggle">Menu</a>
       
             <iframe id="frame" src="./home.html">
-          <div class="content">    </div>
+    
           </iframe>
 
   
@@ -40,7 +40,8 @@
       var navigation = responsiveNav("foo", {customToggle: ".nav-toggle"});
         //加载右侧页面
     
-
+       
+	
         
         
 
@@ -71,8 +72,7 @@
                 data=markdown.toHTML(data);
             }
              alert(data);   
-            $("#frame").removeAttr("src");
-            $(".content").html(data);  
+            document.getElementById("frame").contentWindow.document.body.innerHTML=data;
             }
             });
       });
