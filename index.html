@@ -8,7 +8,7 @@
     <!--[if gt IE 8]><!--><link rel="stylesheet" href="./css/styles.css"><!--<![endif]-->
        
     
-    <script src="./js/responsive-nav.min.js"></script>
+    
   </head>
   <body>
 
@@ -30,6 +30,8 @@
     </div>
 <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="./js/responsive-nav.min.js"></script>
+<script src="./js/markdown.min.js"></script>
     <script>
         //响应式导航栏
       var navigation = responsiveNav("foo", {customToggle: ".nav-toggle"});
@@ -54,7 +56,7 @@
             type: "GET", //静态页用get方法，否则服务器会抛出405错误
             success: function(data){
             //var result = $(data).find("另一个html页面的指定的一部分");
-            $(".content").html(data);
+            $(".content").html(markdown.toHTML(data));
             }
             });
       });
