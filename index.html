@@ -26,7 +26,7 @@
       <a href="#nav" class="nav-toggle">Menu</a>
       
             <iframe id="frame">
-                <body></body>
+                <div id="content"></div>
           </iframe>
 
   
@@ -71,8 +71,9 @@
                 data=markdown.toHTML(data);
             }  
             alert("click"+myurl);    
-              $("#frame").contents().find("body").html("");
-            $("#frame").contents().find("body").html(data); 
+              $("#frame").contents().find("#content").html("1231");
+                alert("123");
+            $("#frame").contents().find("#content").html(data); 
             }
             });
       });
