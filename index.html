@@ -52,12 +52,7 @@
             $.ajax({
                 url:"./home.html",
                 type:"GET",
-                success:function(data){
-                var d=myurl.length-3;
-                if(d>=0&&myurl.lastIndexOf(".md")==d){
-                    data=markdown.toHTML(data);
-                }
-            
+                success:function(data){   
                 $("#frame").contents().find("body").html(data); 
                 }
             });
@@ -65,7 +60,7 @@
         //加载链接页面
       $(".load").click(function(){
             var myurl=$(this).attr("myurl");
-            alert(myurl);
+     
             $.ajax( {
             url: myurl, //这里是静态页的地址
             type: "GET", //静态页用get方法，否则服务器会抛出405错误
@@ -75,6 +70,7 @@
             if(d>=0&&myurl.lastIndexOf(".md")==d){
                 data=markdown.toHTML(data);
             }  
+              
             $("#frame").contents().find("body").html(data); 
             }
             });
