@@ -1,137 +1,66 @@
-<html>    
-<head>
-    <link rel="stylesheet" href="./css/index.css">
-    <!-- 新 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" href="./css/1.css">
-<link rel="stylesheet" href="./css/2.css">
-    <link rel="stylesheet" href="./css/3.css">
-
-
-    <title>首页</title>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Responsive Nav &middot; Advanced Left Navigation Demo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+    <!--[if gt IE 8]><!--><link rel="stylesheet" href="./css/styles.css"><!--<![endif]-->
+       
     
-</head>
-<body>
-<div class="header">
-    <div class="blogtitle">
-     
-    Blmdlm.github.io
+    <script src="./js/responsive-nav.min.js"></script>
+  </head>
+  <body>
+
+    <div role="navigation" id="foo" class="nav-collapse">
+      <ul>
+        <li class="active"><a class="load" myurl="home.html" href="#">首页</a></li>
+        <li><a class="load" myurl="articles.html" href="#">文章</a></li>
+        <li><a class="load" myurl="links.html" href="#">链接</a></li>
+        <li><a class="load" myurl="about.html" href="#">关于</a></li>
+      </ul>
     </div>
-    
-</div>
-    
-    <div class="content ">
 
-        <div class="row">
-  <div class="col-md-4">
-      
-      <div class="sidebar pinned ">
+    <div role="main" class="main">
+      <a href="#nav" class="nav-toggle">Menu</a>
+      <div class="content">
+   
 
-      <div class="panel-group " id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-primary">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          JAVA
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in " role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body btn-default ">
-       <ul>
-        <li ><a class="arc" myurl="1.html" href="#">demo01</a></li>
-        <li><a class="arc" myurl="2.html" href="#">demo02</a></li>
-        </ul>
       </div>
     </div>
-  </div>
-  
-</div>
-        </div>
-     </div>
-  <div class="col-md-6">
-            <div class="article ">
- 
-            <h3>Hello world by Linux</h3>
-            <p>
-             created by blmdlm 2015/4/19 12:19 Sat
-            </p>
-            <p>
-                <pre>
-                    <code>
-                     echo "Hello world";
-                    </code>
-                </pre>
-            </p>
-            
-            
-        </div>
-        <div style="clear:both"></div>
-            
-            
-            </div>
-
-</div>
-        
-    
-        
-
-    </div>
-    <div style="clear:both"></div>
-    <div class="footer">
-    Copyright © 2015 Blmdlm. All rights reserved. 
-    </div>
-    
-    
-    <div style="clear:both"></div>
-    
-    
-    
-
-    
-        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
-
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="./js/jquery.pin.min.js"></script>
-    
     <script>
-        $(".pinned").pin({
-            containerSelector: ".content",
-            padding:{top:100,bottom:20}
-                         });
-        $(".arc").click(
-        function(){
+        //响应式导航栏
+      var navigation = responsiveNav("foo", {customToggle: ".nav-toggle"});
+        //加载首页
+        $(document).ready(function(){
+            
+            $.ajax({
+                url:"home.html",
+                type:"GET",
+                success:function(data){
+                    
+                     $(".content").html(data);
+                }
+            });
+        });
+        //加载链接页面
+      $(".load").click(function(){
             var myurl=$(this).attr("myurl");
-       // alert(myurl);
-        $.ajax( {
-        url: myurl, //这里是静态页的地址
-        type: "GET", //静态页用get方法，否则服务器会抛出405错误
-        success: function(data){
-         //   alert(data);
+          //alert(myurl);
+            $.ajax( {
+            url: myurl, //这里是静态页的地址
+            type: "GET", //静态页用get方法，否则服务器会抛出405错误
+            success: function(data){
             //var result = $(data).find("另一个html页面的指定的一部分");
-            $(".article").html(data);
-
-
-        }
-});
+            $(".content").html(data);
+            }
+            });
+      });
+               
         
-    }
-    
-    )
-    
-    
-    
-    </script>    
-
-
-    
-    
-    
-    
-    
-    
-    
-</body>
+        
+    </script>
+  </body>
 </html>
