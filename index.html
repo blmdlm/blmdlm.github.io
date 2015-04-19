@@ -70,10 +70,12 @@
             if(d>=0&&myurl.lastIndexOf(".md")==d){
                 data=markdown.toHTML(data);
             }  
-            alert("click"+myurl);    
-              $("#frame").contents().find("#content").html("1231");
-                alert("123");
-            $("#frame").contents().find("#content").html(data); 
+            alert("click"+myurl);   
+                var f=$("#frame");
+                f.load(function(){
+                    f.contents().find("content").html(data);
+                });
+         
             }
             });
       });
