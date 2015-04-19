@@ -24,13 +24,12 @@
 
     <div role="main" class="main">
       <a href="#nav" class="nav-toggle">Menu</a>
-      <div class="content">
+      
             <iframe id="frame" src="./home.html">
-           <div id="frameContent">
-                </div>
+          <div class="content">    </div>
           </iframe>
 
-      </div>
+  
     </div>
 <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -61,7 +60,7 @@
         //加载链接页面
       $(".load").click(function(){
             var myurl=$(this).attr("myurl");
-        
+            alert(myurl);
             $.ajax( {
             url: myurl, //这里是静态页的地址
             type: "GET", //静态页用get方法，否则服务器会抛出405错误
@@ -73,7 +72,7 @@
             }
              alert(data);   
             $("#frame").removeAttr("src");
-            $("#frameContent").html(data);  
+            $(".content").html(data);  
             }
             });
       });
