@@ -25,8 +25,8 @@
     <div role="main" class="main">
       <a href="#nav" class="nav-toggle">Menu</a>
       
-            <iframe id="frame" src="./home.html">
-    
+            <iframe id="frame">
+                <div id="content"></div>
           </iframe>
 
   
@@ -47,17 +47,18 @@
 
         
         //加载首页
-//        $(document).ready(function(){
-//           
-//            $.ajax({
-//                url:"./home.html",
-//                type:"GET",
-//                success:function(data){
-//                    alert(data);
-//                     $(".content").html(data);
-//                }
-//            });
-//        });
+        $(document).ready(function(){
+           
+            $.ajax({
+                url:"./home.html",
+                type:"GET",
+                success:function(data){
+                    alert(data);
+                     //$(".content").html(data);
+                    $("#frame").contents().find("content").html(data);
+                }
+            });
+        });
         //加载链接页面
       $(".load").click(function(){
             var myurl=$(this).attr("myurl");
@@ -72,7 +73,7 @@
                 data=markdown.toHTML(data);
             }
              alert(data);   
-            document.getElementById("frame").contentWindow.document.body.innerHTML=data;
+            $("#frame").contents().find("content").html(data); 
             }
             });
       });
