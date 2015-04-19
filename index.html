@@ -53,9 +53,12 @@
                 url:"./home.html",
                 type:"GET",
                 success:function(data){
-                    alert(data);
-                     //$(".content").html(data);
-                    $("#frame").contents().find("body").html(data);
+                var d=myurl.length-3;
+                if(d>=0&&myurl.lastIndexOf(".md")==d){
+                    data=markdown.toHTML(data);
+                }
+            
+                $("#frame").contents().find("body").html(data); 
                 }
             });
         });
@@ -71,9 +74,8 @@
             var d=myurl.length-3;
             if(d>=0&&myurl.lastIndexOf(".md")==d){
                 data=markdown.toHTML(data);
-            }
-             alert(data);   
-            $("#frame").contents().find("#content").html(data); 
+            }  
+            $("#frame").contents().find("body").html(data); 
             }
             });
       });
